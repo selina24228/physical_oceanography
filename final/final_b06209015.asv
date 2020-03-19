@@ -1,0 +1,43 @@
+test=xlsread('FinalExam_Data_training.xlsx');
+wtio=test(:,10);
+tpe=test(:,2);
+%scatter plot
+plot(wtio,tpe,'.')
+title('Correlation between WTIO and Taipei temp')
+xlabel('WTIO SST index')
+ylabel('temp. Taipei')
+saveas(gcf,'scatterplot.png','png');
+%boxplot
+figure()
+boxplot(tpe)
+title('temp. Taipei')
+saveas(gcf,'tpe_boxplot.png','png');
+figure()
+boxplot(wtio)
+title('WTIO')
+saveas(gcf,'wtio_boxplot.png','png');
+%density plot
+figure()
+histogram(tpe,25)
+title('Temp. Taipei')
+xlabel('Temp. Taipei')
+ylabel('density')
+saveas(gcf,'tpe_hist.png','png');
+figure()
+histogram(wtio,25)
+title('WTIO')
+xlabel('sst index')
+ylabel('density')
+saveas(gcf,'wtio_hist.png','png');
+%qq plot
+figure()
+qqplot(tpe)
+title('Temp. Taipei')
+xlabel('Theoretical Quantiles')
+ylabel('Sample Quantiles')
+saveas(gcf,'wtio_qq.png','png');
+figure()
+qqplot(hl0)
+title('Temp. Hualien')
+xlabel('Theoretical Quantiles')
+ylabel('Sample Quantiles')
